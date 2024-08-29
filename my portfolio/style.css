@@ -8,8 +8,104 @@
   text-decoration: none;
   scroll-behavior: smooth;
 }
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Base styles for mobile first */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu {
+  display: none; /* Hide menu by default on mobile */
+  flex-direction: column;
+}
+
+.menu-btn {
+  display: block; /* Show menu button on mobile */
+}
+
+/* Show menu on larger screens */
+@media (min-width: 768px) {
+  .menu {
+      display: flex;
+      flex-direction: row;
+  }
+
+  .menu-btn {
+      display: none;
+  }
+}
+
+/* Adjustments for tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .home-content {
+      text-align: center;
+  }
+
+  .about-details {
+      flex-direction: column;
+  }
+
+  .left, .right {
+      width: 100%;
+  }
+
+  .skills-details {
+      flex-direction: column;
+  }
+}
+
+/* Adjustments for larger screens */
+@media (min-width: 1024px) {
+  .home-content {
+      text-align: left;
+  }
+
+  .about-details {
+      flex-direction: row;
+  }
+
+  .left, .right {
+      width: 50%;
+  }
+
+  .skills-details {
+      flex-direction: row;
+  }
+}
+
+/* Ensure images and content scale */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* Global Styles */
+body {
+  font-family: 'Ubuntu', sans-serif;
+  color: white;
+  background-color: #333; /* Default background color */
+}
+
 /* Example: Update section backgrounds to black */
-.home, .about, .skills, .services, .Education {
+.home, .about, .skills, .services, .education {
   background-color: black;
   color: white; /* Ensure text is readable */
 }
@@ -26,87 +122,85 @@ form {
   color: white;
 }
 
-
 /* Custom Scroll Bar CSS */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-    background: #e97474;
+  background: #e97474;
 }
 ::-webkit-scrollbar-thumb {
-    background: #ff6b08;
-    border-radius: 12px;
-    transition: all 0.3s ease;
+  background: #ff6b08;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fdb733;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #fdb733;
-}
-/* navbar styling */
-nav{
+/* Navbar Styling */
+nav {
   position: fixed;
   width: 100%;
   padding: 20px 0;
   z-index: 998;
   transition: all 0.3s ease;
-  font-family: 'Ubuntu', sans-serif;
 }
-nav.sticky{
+nav.sticky {
   background: #dbdbdb;
   padding: 13px 0;
 }
-nav .navbar{
+nav .navbar {
   width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: auto;
 }
-nav .navbar .logo a{
+nav .navbar .logo a {
   font-weight: 500;
   font-size: 35px;
   color: #ff7230;
 }
-nav.sticky .navbar .logo a{
+nav.sticky .navbar .logo a {
   color: #ff8474;
 }
-nav .navbar .menu{
+nav .navbar .menu {
   display: flex;
   position: relative;
 }
-nav .navbar .menu li{
+nav .navbar .menu li {
   list-style: none;
   margin: 0 8px;
 }
-.navbar .menu a{
+.navbar .menu a {
   font-size: 18px;
   font-weight: 500;
   color: #ff00d4;
   padding: 6px 0;
   transition: all 0.4s ease;
 }
-.navbar .menu a:hover{
+.navbar .menu a:hover {
   color: #f78133;
 }
-nav.sticky .menu a{
+nav.sticky .menu a {
   color: #e66464;
 }
-nav.sticky .menu a:hover{
+nav.sticky .menu a:hover {
   color: #b6ffc6;
 }
-.navbar .media-icons a{
+.navbar .media-icons a {
   color: #f8903b;
   font-size: 18px;
   margin: 0 6px;
 }
-nav.sticky .media-icons a{
+nav.sticky .media-icons a {
   color: #ff0000;
 }
 
 /* Side Navigation Menu Button CSS */
 nav .menu-btn,
-.navbar .menu .cancel-btn{
+.navbar .menu .cancel-btn {
   position: absolute;
   color: #f12727;
   right: 30px;
@@ -116,28 +210,25 @@ nav .menu-btn,
   transition: all 0.3s ease;
   display: none;
 }
-nav .menu-btn{
+nav .menu-btn {
   color: #ff0000;
 }
-nav.sticky .menu-btn{
+nav.sticky .menu-btn {
   color: #fd4444;
 }
-.navbar .menu .menu-btn{
+.navbar .menu .cancel-btn {
   color: #eb8430;
 }
 
-
-/* home section styling */
-.home{
+/* Home Section Styling */
+.home {
   height: 100vh;
   width: 100%;
-  background: url("background.jpeg") ;
+  background: url("background.jpeg") no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   font-family: 'Ubuntu', sans-serif;
 }
-.home .home-content{
+.home .home-content {
   width: 90%;
   height: 100%;
   margin: auto;
@@ -145,35 +236,35 @@ nav.sticky .menu-btn{
   flex-direction: column;
   justify-content: center;
 }
-.home .text-one{
+.home .text-one {
   font-size: 70px;
   color: #4fbdfd;
 }
-.home .text-two{
+.home .text-two {
   color: #3cffef;
   font-size: 35px;
   font-weight: 300;
   margin-left: -3px;
 }
-.home .text-three{
+.home .text-three {
   font-size: 35px;
   margin: 5px 0;
   color: #fc5623;
 }
-.home .text-four{
-  font-size: 35px;
+.home .text-four {
+  font-size: 45px;
   margin: 5px 0;
   color: #cbff6a;
 }
-.home .text-five{
+.home .text-five {
   font-size: 30px;
   margin: 5px 0;
   color: #64f3b8;
 }
-.home .button{
+.home .button {
   margin: 14px 0;
 }
-.home .button button{
+.home .button button {
   outline: none;
   padding: 8px 16px;
   border-radius: 6px;
@@ -185,11 +276,70 @@ nav.sticky .menu-btn{
   border: 2px solid transparent;
   transition: all 0.4s ease;
 }
-.home .button button:hover{
+.home .button button:hover {
   border-color: #fc6b61;
   background-color: #0a0a0a;
   color: #dcff60;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav .navbar .menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: #333;
+      width: 200px;
+      border-radius: 5px;
+  }
+
+  nav .navbar .menu.active {
+      display: flex;
+  }
+
+  nav .menu-btn, .navbar .menu .cancel-btn {
+      display: block;
+  }
+
+  nav .menu-btn {
+      color: #ff0000;
+  }
+  nav.sticky .menu-btn {
+      color: #fd4444;
+  }
+  .navbar .menu .cancel-btn {
+      color: #eb8430;
+  }
+
+  .home .text-one {
+      font-size: 50px;
+  }
+
+  .home .text-two {
+      font-size: 25px;
+  }
+
+  .home .text-three, .home .text-four, .home .text-five {
+      font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home .text-one {
+      font-size: 40px;
+  }
+
+  .home .text-two {
+      font-size: 20px;
+  }
+
+  .home .text-three, .home .text-four, .home .text-five {
+      font-size: 16px;
+  }
+}
+
 
 /* About Section Styling */
 /* Those Elements Where We Have Apply Same CSS,
@@ -365,7 +515,6 @@ section .button button:hover{
   }
 }
 
-/* My Services CSS */
 /* Common Section Styles */
 .services, .projects {
   padding: 60px 0;
@@ -418,18 +567,17 @@ section .button button:hover{
   transition: transform 0.3s ease;
 }
 
+/* Hover Effects */
 .services .box:hover, .projects .box:hover {
   transform: translateY(-10px);
 }
 
-/* Icon Styles */
 .services .icon, .projects .icon {
   font-size: 40px;
   color: #d89e9e;
   margin-bottom: 20px;
 }
 
-/* Topic Styles */
 .services .topic, .projects .topic {
   font-size: 24px;
   font-weight: bold;
@@ -437,7 +585,6 @@ section .button button:hover{
   margin-bottom: 15px;
 }
 
-/* Description Text */
 .services p, .projects p {
   font-size: 16px;
   line-height: 1.6;
@@ -475,20 +622,45 @@ section .button button:hover{
   color: #000000;
 }
 
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .services .box, .projects .box {
+    width: calc(100% - 20px);
+    margin: 0 10px 20px;
+  }
+  
+  .services .title span, .projects .title span {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .services .icon, .projects .icon {
+    font-size: 30px;
+  }
+  
+  .services .topic, .projects .topic {
+    font-size: 20px;
+  }
+  
+  .services p, .projects p {
+    font-size: 14px;
+  }
+}
+
 
 /* Education Section Styles */
-.Education {
+.education {
   background-color: #131212; /* Background color of the section */
   padding: 60px 0;
 }
 
-.Education .content {
+.education .content {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }
 
-.Education .title span {
+.education .title span {
   font-size: 36px;
   font-weight: bold;
   color: #ff6e6e; /* Title color */
@@ -497,7 +669,7 @@ section .button button:hover{
   position: relative;
 }
 
-.Education .title span::after {
+.education .title span::after {
   content: '';
   width: 60px;
   height: 4px;
@@ -508,13 +680,13 @@ section .button button:hover{
   bottom: -10px;
 }
 
-.Education .boxes {
+.education .boxes {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.Education .boxes .box {
+.education .boxes .box {
   margin: 20px 0;
   width: calc(33.333% - 20px); /* Three boxes per row */
   text-align: center;
@@ -526,14 +698,14 @@ section .button button:hover{
   background-color: #000000; /* Background color of each box */
 }
 
-.Education .boxes .box:hover {
+.education .boxes .box:hover {
   background: #fab9b9; /* Slightly lighter background on hover */
   color: #0f0e0e; /* Light text color on hover */
   transform: translateY(-5px); /* Lift effect on hover */
   box-shadow: 0 10px 20px rgba(255, 146, 146, 0.3); /* Enhanced shadow on hover */
 }
 
-.Education .boxes .box .icon {
+.education .boxes .box .icon {
   height: 50px;
   width: 50px;
   background: #fcd7d7; /* Light red background for the icon */
@@ -546,12 +718,12 @@ section .button button:hover{
   transition: all 0.4s ease;
 }
 
-.Education .boxes .box:hover .icon {
+.education .boxes .box:hover .icon {
   background-color: #ff3e3e; /* Darker red on hover */
   color: #0f0d0d; /* Lighter text color */
 }
 
-.Education .boxes .box .topic {
+.education .boxes .box .topic {
   font-size: 24px;
   font-weight: bold;
   color: #fcbfbf; /* Light red color for the topic */
@@ -559,44 +731,45 @@ section .button button:hover{
   transition: color 0.4s ease; /* Smooth transition for color change */
 }
 
-.Education .boxes .box:hover .topic {
+.education .boxes .box:hover .topic {
   color: #0a0808; /* Change text color on hover */
 }
 
-.Education .boxes .box p {
+.education .boxes .box p {
   font-size: 16px;
   line-height: 1.6;
   color: #fda9a9; /* Lighter color for the paragraph text */
   transition: color 0.4s ease; /* Smooth transition for color change */
 }
 
-.Education .boxes .box:hover p {
+.education .boxes .box:hover p {
   color: #050505; /* Change text color on hover */
 }
 
-.Education .boxes .box a {
+.education .boxes .box a {
   color: #ff6e6e; /* Link color */
   text-decoration: none;
   font-weight: bold;
   transition: color 0.4s ease; /* Smooth transition for color change */
 }
 
-.Education .boxes .box a:hover {
+.education .boxes .box a:hover {
   text-decoration: underline; /* Underline on hover */
   color: #ff3e3e; /* Change link color on hover */
 }
 
 @media (max-width: 768px) {
-  .Education .boxes .box {
+  .education .boxes .box {
     width: calc(50% - 20px); /* Two boxes per row on medium screens */
   }
 }
 
 @media (max-width: 480px) {
-  .Education .boxes .box {
+  .education .boxes .box {
     width: 100%; /* One box per row on small screens */
   }
 }
+
 
 /* Contact Me CSS */
 .contact{
