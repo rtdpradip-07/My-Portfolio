@@ -13,6 +13,22 @@ window.onscroll = function() {
   }
 
 }
+// script.js
+
+document.addEventListener('DOMContentLoaded', function() {
+  const menuBtn = document.querySelector('.menu-btn');
+  const menu = document.querySelector('.menu');
+  const cancelBtn = document.querySelector('.cancel-btn');
+
+  menuBtn.addEventListener('click', function() {
+      menu.style.display = 'flex'; // Show menu
+  });
+
+  cancelBtn.addEventListener('click', function() {
+      menu.style.display = 'none'; // Hide menu
+  });
+});
+
 
 // Side NavIgation Menu JS Code
 let body = document.querySelector("body");
